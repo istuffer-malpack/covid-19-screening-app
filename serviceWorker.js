@@ -13,6 +13,17 @@ self.addEventListener("install", installEvent => {
   );
 });
 
+self.addEventListener('activate', evt => {
+  evt.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(keys
+        .filter(key => key !== cacheName)
+        .map(key => caches.delete(key))
+      );
+    })
+  );
+});
+
 self.addEventListener("fetch", fetchEvent => {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then(res => {
