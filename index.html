@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+	<style>
+		*{box-sizing:border-box}html{font-family:Arial,Helvetica,sans-serif;font-family:Lato,sans-serif}body{margin:0;padding:0}p{line-height:22px}ol{padding-left:20px}.header{background-color:red;color:#fff}input[type=text]{width:auto;min-width:300px;padding:12px;margin:5px 50px 22px 0;display:inline-block;background-color:#fff;border:1px solid #ddd;font-size:16px}input[type=text]:focus{outline:0}input[type=checkbox],input[type=radio]{height:16px;width:16px}button{border:2px solid #000;background-color:#fff;color:#000;padding:14px 28px;font-size:16px;cursor:pointer;border-color:#2196f3;color:#1e90ff;margin-top:25px}button:hover{background:#2196f3;color:#fff}.maincontainer{width:60%;margin:0 auto;border:1px #ccc solid}.container{padding:50px}.clearfix::after{content:"";clear:both;display:table}.form-inline{display:flex;flex-flow:row wrap;align-items:center}.form-inline label{margin:5px 10px 15px 0}.form-inline button{padding:10px 20px;background-color:#1e90ff;border:1px solid #ddd;color:#fff}.form-inline button:hover{background-color:#4169e1}.row{width:100%;margin:15px 0;padding:0}.col-75{width:55%;float:left}.col-25{width:45%;float:left;text-align:right}.col-25 label{margin:0 7px;vertical-align:middle}::placeholder{color:red;opacity:1}:-ms-input-placeholder{color:red}::-ms-input-placeholder{color:red}@media (max-width:1366px){.maincontainer{width:85%}}@media (max-width:1024px){.maincontainer{width:75%}.container{padding:32px}.form-inline{flex-direction:column;align-items:stretch}}@media (max-width:800px){.maincontainer{width:100%}.container{padding:16px}.form-inline input{margin:10px 0}.form-inline{flex-direction:column;align-items:stretch}input[type=text]{min-width:250px;margin:5px 0 22px 0}}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<link rel="manifest" href="manifest.json" />
+	<!-- ios support -->
+	<link rel="apple-touch-icon" href="/icon-72x72.png" />
+	<link rel="apple-touch-icon" href="/icon-96x96.png" />
+	<link rel="apple-touch-icon" href="/icon-128x128.png" />
+	<link rel="apple-touch-icon" href="/icon-144x144.png" />
+	<link rel="apple-touch-icon" href="/icon-152x152.png" />
+	<link rel="apple-touch-icon" href="/icon-192x192.png" />
+	<link rel="apple-touch-icon" href="/icon-384x384.png" />
+	<link rel="apple-touch-icon" href="/icon-512x512.png" />
+	<meta name="apple-mobile-web-app-status-bar" content="#db4938" />
+	<meta name="theme-color" content="#db4938" />	
+</head>
+<body>  
+<div class="maincontainer">
+  <div class="header">
+	<div class="container">
+		<h1>COVID-19 SCREENING QUESTIONNAIRE</h1>
+		<h2>All staff must complete before beginning their work shift or entering the workplace.</h2>
+	</div>
+	</div>
+
+	<div class="container">
+<form id="formQuestionnaire">	
+<div class="form-inline">
+    <label for="empNo" style="position:relative;"><b>Employee Number</b>
+		<span style="position: absolute;left: 0;top: 19px;font-style: italic;font-size: 11px;">(For visitors, leave it blank)</span>
+	</label>
+    <input type="text" placeholder="" name="empNo" oninput="populateEmployeeName(this.value)">	
+	
+	<label for="empName"><b class="empName msg">Employee Name</b></label>
+    <input type="text" id="empName" placeholder="" name="empName">
+   
+</div>
+<ol>
+	<li>
+	<p>Do you have any of the following new or worsening symptoms or signs?</p>
+	<div class="row clearfix">
+		<label class="col-75 feverOrChills msg">Fever and/or chills</label>
+		<div class="col-25">
+		<label><input type="radio" name="feverOrChills" value="yes"> Yes </label>
+		<label><input type="radio" name="feverOrChills" class="no" value="no"> No </label>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<label class="col-75 cough msg">Cough or barking cough (croup)</label>
+		<div class="col-25">
+		<label><input type="radio" name="cough" value="yes"> Yes </label>
+		<label><input type="radio" name="cough" class="no" value="no"> No </label>
+	</div>
+	</div>
+	<div class="row clearfix">
+		<label class="col-75 shortnessOfBreath msg">Shortness of breath</label>
+		<div class="col-25">
+		<label><input type="radio" name="shortnessOfBreath" value="yes"> Yes </label>
+		<label><input type="radio" name="shortnessOfBreath" class="no" value="no"> No </label>
+	</div>
+	</div>
+	<div class="row clearfix">
+		<label class="col-75 sorethroat msg">Sore throat or trouble swallowing</label>
+		<div class="col-25">
+		<label><input type="radio" name="sorethroat" value="yes"> Yes </label>
+		<label><input type="radio" name="sorethroat" class="no" value="no"> No </label>
+	</div>
+	</div>
+	<div class="row clearfix">
+		<label class="col-75 runnyStuffyNose msg">Runny or stuffy nose</label>
+		<div class="col-25">
+		<label><input type="radio" name="runnyStuffyNose" value="yes"> Yes </label>
+		<label><input type="radio" name="runnyStuffyNose" class="no" value="no"> No </label>
+	</div>
+	</div>
+	<div class="row clearfix">
+		<label class="col-75 headache msg">Headache that is unusual or long-lasting</label>
+		<div class="col-25">
+		<label><input type="radio" name="headache" value="yes"> Yes </label>
+		<label><input type="radio" name="headache" class="no" value="no"> No </label>
+	</div>
+	</div>
+	<div class="row clearfix">
+		<label class="col-75 lossOfTaste msg">Decrease or loss of taste or smell</label>
+		<div class="col-25">
+		<label><input type="radio" name="lossOfTaste" value="yes"> Yes </label>
+		<label><input type="radio" name="lossOfTaste" class="no" value="no"> No </label>
+	</div>
+	</div>
+	<div class="row clearfix">
+		<label class="col-75 nauseaVomitingDiarrhea msg">Nausea, vomiting or diarrhea </label>
+		<div class="col-25">
+		<label><input type="radio" name="nauseaVomitingDiarrhea" value="yes"> Yes </label>
+		<label><input type="radio" name="nauseaVomitingDiarrhea" class="no" value="no"> No </label>
+	</div>
+	</div>
+	<div class="row clearfix">
+		<label class="col-75 extremeTiredness msg">Extreme tiredness</label>
+		<div class="col-25">
+		<label><input type="radio" name="extremeTiredness" value="yes"> Yes </label>
+		<label><input type="radio" name="extremeTiredness" class="no" value="no"> No </label>
+	</div>
+	</div>
+	<div class="row clearfix">
+		<label class="col-75 muscleAches msg">Muscle aches </label>
+		<div class="col-25">
+		<label><input type="radio" name="muscleAches" value="yes"> Yes </label>
+		<label><input type="radio" name="muscleAches" class="no" value="no"> No </label>
+	</div>
+	</div>
+	<div class="row clearfix">
+		<label class="col-75 pinkeye msg">Pink eye (for adults)</label>
+		<div class="col-25">
+		<label><input type="radio" name="pinkeye" value="yes"> Yes </label>
+		<label><input type="radio" name="pinkeye" class="no" value="no"> No </label>
+	</div>
+	</div>
+	<div class="row clearfix">
+		<label class="col-75 stomachPain msg">Stomach pain (for adults)</label>
+		<div class="col-25">
+		<label><input type="radio" name="stomachPain" value="yes"> Yes </label>
+		<label><input type="radio" name="stomachPain" class="no" value="no"> No </label>
+	</div>
+	</div>
+	<div class="row clearfix">
+		<label class="col-75 fallingdownoften msg">Falling down often (for older adults)</label>
+		<div class="col-25">
+		<label><input type="radio" name="fallingdownoften" value="yes"> Yes </label>
+		<label><input type="radio" name="fallingdownoften" class="no" value="no"> No </label>
+	</div>
+	</div>
+	<div class="row clearfix">		
+		<div style="float: right;">
+			<label><input type="checkbox" name="allno" onclick="toggle(this)" style="margin-right:32px;"><br> All No </label>
+		</div>
+	</div>
+	</li>
+<li>
+
+	<p class="stayAtHome msg">Has a doctor, health care provider, or public health unit told you that you should
+currently be isolating (staying at home)?</p>
+	<div>
+		<label>	<input type="radio" name="stayAtHome" value="yes"> Yes</label>
+		<label>	<input type="radio" name="stayAtHome" value="no"> No</label>
+	</div>
+</li>
+<li>
+	<p class="closeContact msg">Have you been identified as a "close contact" of someone who currently has
+COVID-19 in the last 14 days?</p>
+	<label><input type="radio" name="closeContact" value="yes"> Yes </label>
+  <label> <input type="radio" name="closeContact" value="no">  No  </label>
+</li>
+<li>
+	<p class="exposureNotificationAlert msg">Have you received a COVID Alert exposure notification on your cell phone in the
+last 14 days (and have not been tested or waiting for your result)?</p>
+	<label><input type="radio" name="exposureNotificationAlert" value="yes">Yes</label>
+  <label><input type="radio" name="exposureNotificationAlert" value="no"> No </label>
+</li>
+<li>
+	<p class="travelOutsideCanada msg">Have you or anyone you live with traveled outside of Canada in the last 14 days?</p>
+	<label><input type="radio" name="travelOutsideCanada" value="yes">Yes</label>
+  <label><input type="radio" name="travelOutsideCanada" value="no"> No </label>
+</li>
+    
+  </ol>  
+<!--<div style="border: 2px red solid;padding:10px;">
+  <i style="font-size:12px;font-weight:700;">If you answer YES to any one of the questions above, 
+  PLEASE DO NOT enter this location
+AND contact either your health care provider or Telehealth Ontario (1-866-797-0000) to
+get advice or an assessment, including if you need a COVID-19 test.</i>
+</div>-->
+   
+      <button type="button" class="formSubmit">Submit</button>
+   
+</form>	
+</div>
+
+</div>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker
+      .register("/serviceWorker.js")
+      .then(res => console.log("service worker registered"))
+      .catch(err => console.log("service worker not registered", err))
+  })
+}
+
+var employeeData = {9948 : 'AARHONE RIVERAL',9106 : 'AARON BECKLES',9556 : 'ABARAJITHAN SOTHILINGAM',3101 : 'ABDULLA THUFAIL CK',3097 : 'ABDULLAH ISHAQZAI',9032 : 'ABDULLAH KHAWAJA',9858 : 'ABDULSALAM ABDIRAHMAN',9049 : 'ABUBAKAR RASHIDI',9771 : 'AHMED SALIM',9679 : 'ALANDO LEWIS',59 : 'ALITA TORRAVILLE',9947 : 'ALLEYNE PETERKIN',9904 : 'ALONA CAOLENG',9950 : 'AMIRTHALINGAM TAMILPRAGASH',3016 : 'ANA CARVALHO',9789 : 'ANANTHA RANGATHUNGA',9863 : 'ANDREW HAMILTON',9485 : 'ANDREW LOGAN',21 : 'ANGELA RODARO',9870 : 'ANOJAN THANKAVADIVEL',9949 : 'ANTON PARAMANAYAGAM',9613 : 'ARUDCHELVAN THARMALINGAM',9942 : 'ARULEESWARAN KANAPATHIPILLAI',3119 : 'ARUN VIVEKANANDHAM',3081 : 'ASHFAQ AHMED',3079 : 'ASIF ZAFAR',37 : 'ATTILIO LANDOLFI',71 : 'BAHRAM RAFIEI',9847 : 'BASHEETH GULAM MOHAMED',9912 : 'BASHIR IBRAHIM',9707 : 'BAVANI JEYARAJAH',9386 : 'BIBI BAKSH',9388 : 'BIBI GEORGE',2140 : 'BIBI HAKEEM',17 : 'BILL MURER',53 : 'BRENDA MOSHER-VAN-HOOF',9811 : 'BRENDA TOBIN',2060 : 'BRUCE GREIG',3090 : 'BRUCE WHAN',9807 : 'BRYCE FENTON',9631 : 'CALVIN MASON',9217 : 'CASTAN MATERSON',9036 : 'CHARLIE MIFSUD',3087 : 'CHENGLIN QU',48 : 'CHERYL CALBERRY',9680 : 'CHERYL FABIAN',50 : 'DANA MATOS',2116 : 'DANIEL EARLS',3066 : 'DARSHANNAN CHARAN',9010 : 'DECHIRSTO BISHOP',28 : 'DEE MCLELLAN',9886 : 'DELROY HOUSEN',9871 : 'DESMAN MARIYANAYAKAM',2024 : 'DHANASHEWA SOOKNANAN',9864 : 'DIANNE TOPFER',9385 : 'DIMITRI MCKENLEY',9612 : 'DJIBRIL ABDILLAHI',200 : 'DOMINIC PANACCI.',9555 : 'DONALD THOMAS',3103 : 'ELMER AGUILAR',2043 : 'EMIDIO NETO',73 : 'EVON HOOPER',2134 : 'FARAHA ASHFAQ',9633 : 'FLORENCE ASARE-APPIAH',9019 : 'FLORENDO GARCIA',9020 : 'FRAIDON GHSAKHI',60 : 'FRANCESCA DI PIETRO',9857 : 'FRANK RAJANAYAGAM',2062 : 'GAVIN DOVER',2028 : 'GLENROY BARTLEY',9579 : 'GOBINATH PASUPATHI',9565 : 'GUNARATNAM MAKESHWARAN',3091 : 'HEMENKUMAR PATEL',9045 : 'HUGH POTTER',3096 : 'HYDER MEER',9934 : 'IRAN WALLACE',66 : 'ISTUFFER SANCHEZ',2044 : 'JAINARINE RAMPERSAD',9023 : 'JASON JAMES',9667 : 'JASON PATRICK',9856 : 'JEEVA SATHIYENDRA',9868 : 'JERIN VARGHESE',3116 : 'JIM BRAYLEY',74 : 'JIM HOGAN',14 : 'JIM LEO',3121 : 'JISHNU RAJ',9890 : 'JOAN LEE',35 : 'JOHN CHIODI',987722 : 'JOHN FIGUEIREDO',9924 : 'JOLENE PENNEY',2128 : 'JONATHAN GREIG',9307 : 'JORDAN EDWARDS',24 : 'JUDY CAREY',3120 : 'JULIAN ZMACK',2143 : 'JYOTI SURI',77 : 'JYOTI VASUDEVA',3124 : 'KAI JOSEPH',9884 : 'KAJANTHAN THIRUCHELVARAJAH',9759 : 'KANTHASAMY KAJENTHIRAN',9803 : 'KAREN WRIGHT',9926 : 'KARLA BARRETO',9734 : 'KARUNAKARAN ARULANANDAM',9397 : 'KASHIF ZAFAR',9805 : 'KAZI ATOL',9937 : 'KEVIN CAMPOS',9108 : 'KHALID MAHMOOD',9599 : 'KILLICK MICHAUD',29 : 'KIM ADAMS',9842 : 'KIRANJIT SOMWARU',9853 : 'KOSYGIN CADAVEZ',9951 : 'LAGHUSHAN SRIRANGANATHAN',3082 : 'LARRY COOK',9951 : 'LATHUSHAN SRIRANGANATHAN',9601 : 'LAYAJAN RATNANATHAN',15 : 'LEE HAYDEMAN-WARNER',9463 : 'LEELY KENNEDY',9662 : 'LERMA VILLARIAS',69 : 'LINDSAY AUSTIN',9774 : 'LINGA PIRSATH',55 : 'LIS QUAIL',9016 : 'LLYOD DOVER',9720 : 'LOGATHAS SHANMUGALINGAM',39 : 'LORIE WUNDERLICH',27 : 'LOUISE BINDER-SEARLE',2073 : 'LUCIA MIGUEL-LOPES',9829 : 'LUXAN VIJAYAKUMAR',2004 : 'LYDIA QUAPONG',9790 : 'MALINDA MADURAPPERUMA',3028 : 'MARIA GARCIA',2133 : 'MARIA SANTOS',9017 : 'MARLON DUNCAN',9835 : 'MELAINE MANJONG',9312 : 'MICHAEL HALL',9306 : 'MICHAEL HARTEN',3054 : 'MICHAEL PANKEWICZ',63 : 'MICHAELA RABUYA',9722 : 'MOHAMOUD AHMED',9674 : 'MURUGESH NATARAJAN',9881 : 'NAINATHAMBI SHAHULHAMID',9919 : 'NANETTE FRANCOIS',9711 : 'NANTHAKUMAR KANAGARATNAM',9219 : 'NESTOR BONILLA',3123 : 'NEVILIN ABRAKAM',9908 : 'NICHOLAS ROBINSON',9848 : 'NIRANJAN KANTHASAMY',9797 : 'NIRANJAN MURUKUPILLAI',9938 : 'NIVETHA RAJIV',2141 : 'NONA SWARNAKUMAR',9325 : 'OMAR AL MADANI',9802 : 'PACKIYALETCH SOMA',42 : 'PAMELA MCLAUGHLIN',9706 : 'PAMILA SIVANETHRA',9946 : 'PARANTHANAM SHANMUGAM',9206 : 'PARASRAM PERSAUD',9883 : 'PARATHEEPAN MURUGANANHAN',9367 : 'PATRICIA HOYTE',68 : 'PAUL BASTOS',2035 : 'PAUL FOX',56 : 'PAULA RAYMAN',6000 : 'PETER QU',9087 : 'PIRASANTH KANAGARATNAM',2034 : 'POOBALARAJAH ARULANANTHAM',9706 : 'PRAMILA SIVANENTHRA',9833 : 'PRATHEEPAN PARAMSOTHYNATHAN',9872 : 'PRATHEESHKUM KIRUVAIRATNAM',9405 : 'RADIKA DAVIES',9931 : 'RAGIKA SAYANTHAN',64 : 'RAMIN BOLOURIAN',9927 : 'RATHIGA JANASEGARAM',9011 : 'REPUDAHAN BUDHRAM',34 : 'RICARDO CARDOSO',2026 : 'ROCCO RUCCIA',9026 : 'RON KEMP',46 : 'ROSEANN GIBSON',9402 : 'ROSECLAIRE BONADIE',2077 : 'ROSS LAURIOLA',9638 : 'SABERA PATEL',3104 : 'SAJIDBHAI VAHORA',9753 : 'SANTHINY SUHAPIRAMAM',3118 : 'SARAS BEZAWADA',3109 : 'SARUN THOMAS',9880 : 'SASIKAANTH VARATHARAJAH',2027 : 'SAYSAVAT PHONSAPHAO',2142 : 'SCOTT MARENGEUR',70 : 'SCOTT MILLER',9867 : 'SEBASTIAN GRANTA',9712 : 'SHAHABUDEN HAJA',3038 : 'SHAHID HUSSAIN',10 : 'SHAHID QURESHI',9047 : 'SHAKIR QURESHI',9923 : 'SHANE MCGRATH',9945 : 'SHANECE STOUTE-FLETCHER',31 : 'SHAUN GORMAN',9843 : 'SHAUN MIROWSKI',9691 : 'SHEREEN PATRAM',9899 : 'SIMON ANTONIPILLAI',2104 : 'SISAVATH NAIYOKSON',9831 : 'SIVARUBAN KUNASEKARALINGAM',9896 : 'SIVASGAR SUBRAMANIWM',9920 : 'SIVATHARGINI THAYAKARAN',9944 : 'SRIKANTHARAJAH KANDIAH',9918 : 'SRIVIDYIDEVI GANENDRALINGAM',9486 : 'STEPHEN AIELLO',43 : 'STEWART WEAVER',9697 : 'SUNETHRA ATPUTHARASA',9417 : 'SURSATEE BISSOONDYAL',9892 : 'SUTHARSAN KANDASAMY',9801 : 'SUTHASINY RAGUTHAS',2019 : 'SYAMALADEVI ARULANANTHAN',9695 : 'THASAYINI AMUTHALAKAN',9058 : 'THAYAKARAN SINNARASA',9943 : 'THINESH  NIMALATHASAN',9686 : 'THIRUMAKAN KANTHASAMY',9034 : 'TIM MAPES',9110 : 'TODD COLE',3099 : 'TONY GALEA',9434 : 'TRAVIS KING',9184 : 'TRISTAN HARRISON',9660 : 'UMAR SHAREEF',3114 : 'VATSAL VAGHELA',9689 : 'VENUGOPAL SANTHANAKRISHNAN',9353 : 'VIDA ACQUAH',9941 : 'VIMALRAJ THAMBITHURAI',9558 : 'VINEGESWARAN SHANMUGALINGAM',9913 : 'VIRAJ KALUBOWILA',3086 : 'VLADIMIR KNEZEVIC',32 : 'WAYNE MENZIE',30 : 'WENDY O"CONNER',2063 : 'WILFRID POUDRIER',3072 : 'WINTSON DOVER',9031 : 'ZAKIR KHAN',9048 : 'ZAKIR QURESHI'};
+			
+
+
+function populateEmployeeName(empID) {
+  var x = document.getElementById("empName");
+  if(typeof employeeData[(empID*1)] === 'undefined'){
+	x.value = "";
+  }else{	
+	x.value = employeeData[(empID*1)];
+  }
+  
+}
+
+function toggle(source) {
+    var checkboxes = document.querySelectorAll('input[class="no"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i] != source)
+            checkboxes[i].checked = source.checked;
+    }
+}
+
+ $(document).ready(function() {
+	$('.formSubmit').click(function(e){	
+		e.preventDefault();
+		
+		var count = 0;
+		var empName = $('#empName').val();
+		if(empName == ""){
+			$('#empName').attr('placeholder','Please enter your name');
+			count++;
+		}else{
+			$('#empName').attr('placeholder','');
+		}
+		
+		$('input[type="radio"').each(function() {
+			  var cname = $(this).attr("name");
+			  if($(this).is(':checked')){
+				$('.' + cname).css("color","#000");
+			  }else{
+				$('.' + cname).css("color","red");
+				count++;
+			  }			  
+		});
+		
+		
+		
+		if(count > 17){
+			alert("Please make sure you have answer all questions.");	
+		
+		}else{
+			//form submit
+			$('button').text("Sending...");
+			$.ajax({
+				url: 'https://script.google.com/a/malpack.ca/macros/s/AKfycbz8V0BxvsqyLpCl7hEZlday2YZLXMoYCNB3CqTVTQ/exec',
+				type: 'get',
+				dataType: 'json',
+				data: $('#formQuestionnaire').serialize(),
+				success: function(data) {
+					if(data.result === "success"){
+						alert("Thank you, your information has been successfully submitted.");
+						$("html, body").animate({scrollTop: 0}, 1000);
+						$('#formQuestionnaire')[0].reset();
+					}else{
+						alert("Something went wrong when submitting the form. Please refresh the page and submit again.");
+					}
+					$('button').text("Submit");							
+				}
+			});		
+					
+		}	
+					
+	});
+ });
+
+	</script>
+
+</body>
+</html>
