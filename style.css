@@ -1,15 +1,23 @@
 * {
-	box-sizing: border-box
+	box-sizing: border-box;
 }
 
 html {
 	font-family: Arial, Helvetica, sans-serif;
-	font-family: Lato, sans-serif
+	font-family: Lato, sans-serif;
 }
 
 body {
 	margin: 0;
-	padding: 0
+	padding: 0;
+}
+
+h1 span{
+	display: inline-block;
+}
+
+h2{
+	font-size: 20px;
 }
 
 p {
@@ -17,12 +25,13 @@ p {
 }
 
 ol {
-	padding-left: 20px
+	padding-left: 20px;
+	padding-bottom: 25px;
 }
 
 .header {
 	background-color: #db4938;
-	color: #fff
+	color: #fff;
 }
 
 input[type=text] {
@@ -33,57 +42,60 @@ input[type=text] {
 	display: inline-block;
 	background-color: #fff;
 	border: 1px solid #ddd;
-	font-size: 16px
+	font-size: 16px;
 }
 
 input[type=text]:focus {
-	outline: 0
+	outline: 0;
 }
 
 input[type=checkbox],
 input[type=radio] {
-	height: 16px;
-	width: 16px
+	height: 18px;
+	width: 18px;
 }
 
 button {
 	border: 2px solid #000;
 	background-color: #fff;
-	color: #000;
 	padding: 14px 28px;
-	font-size: 16px;
+	font-size: 24px;
 	cursor: pointer;
 	border-color: #2196f3;
 	color: #1e90ff;
-	margin-top: 25px
+	margin: 25px auto;
+    display: block;
 }
 
 button:hover {
 	background: #2196f3;
-	color: #fff
+	color: #fff;
 }
 
 .maincontainer {
 	position: relative;
 	width: 60%;
 	margin: 0 auto;
-	border: 1px #ccc solid
 }
 
 .container {
-	padding: 50px
+	padding: 30px;
 }
 
 .clearfix::after {
 	content: "";
 	clear: both;
-	display: table
+	display: table;
+}
+
+form{
+	font-size: 18px;
 }
 
 .form-inline {
 	display: flex;
 	flex-flow: row wrap;
-	align-items: center
+	align-items: center;
 }
 
 .form-inline label {
@@ -94,7 +106,7 @@ button:hover {
 	padding: 10px 20px;
 	background-color: #1e90ff;
 	border: 1px solid #ddd;
-	color: #fff
+	color: #fff;
 }
 
 .form-inline button:hover {
@@ -104,93 +116,165 @@ button:hover {
 .row {
 	width: 100%;
 	margin: 15px 0;
-	padding: 0
+	padding: 0;
 }
 
 .col-75 {
 	width: 55%;
-	float: left
+	float: left;
 }
 
 .col-25 {
 	width: 45%;
 	float: left;
-	text-align: right
+	text-align: right;
 }
 
 .col-25 label {
 	margin: 0 7px;
-	vertical-align: middle
+	vertical-align: middle;
 }
 
 ::placeholder {
 	color: #db4938;
-	opacity: 1
+	opacity: 1;
 }
 
 :-ms-input-placeholder {
-	color: #db4938
+	color: #db4938;
 }
 
 ::-ms-input-placeholder {
-	color: #db4938
-}
-
-@media (max-width:1366px) {
-	.maincontainer {
-		width: 85%
-	}
-}
-
-@media (max-width:1024px) {
-	.maincontainer {
-		width: 75%
-	}
-	.container {
-		padding: 32px
-	}
-	.form-inline {
-		flex-direction: column;
-		align-items: stretch
-	}
-}
-
-@media (max-width:800px) {
-	.maincontainer {
-		width: 100%
-	}
-	.container {
-		padding: 16px
-	}
-	.form-inline input {
-		margin: 10px 0
-	}
-	.form-inline {
-		flex-direction: column;
-		align-items: stretch
-	}
-	input[type=text] {
-		min-width: 250px;
-		margin: 5px 0 22px 0
-	}
+	color: #db4938;
 }
 
 .hidden {
   display: none !important;
 }
 
-#installContainer {
-  position: absolute;
+/*#installContainer {
+  position: fixed;
   bottom: 1em;
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 200px;
+  background-color: rgba(0,0,0,.5);
+  margin: 0 25%;
 }
 
 #installContainer button {
-  background-color: red;
-  border: 1px solid white;
-  color: white;
-  font-size: 1em;
-  padding: 0.75em;
+  border: 0;
+  color: #000;
+}*/
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7); 
 }
+
+.popup {
+  margin: 30% auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media (max-width:1366px) {
+	.maincontainer {
+		width: 85%;
+	}
+}
+
+@media (max-width:1024px) {
+	.maincontainer {
+		width: 75%;
+	}
+	.container {
+		padding: 32px;
+	}
+	.form-inline {
+		flex-direction: column;
+		align-items: stretch;
+	}
+}
+
+@media (max-width:800px) {
+	.maincontainer {
+		width: 100%;
+	}
+	.container {
+		padding: 16px;
+	}
+	.form-inline input {
+		margin: 10px 0;
+	}
+	.form-inline {
+		flex-direction: column;
+		align-items: stretch;
+	}
+	input[type=text] {
+		min-width: 250px;
+		margin: 5px 0 22px 0;
+	}
+	#butInstall{
+		font-size: inherit;
+	}
+	.popup {
+		margin: 70% auto;
+	}
+	.popup .close {
+		top: 5px;
+		right: 10px;
+	}
+	.box{
+		width: 90%;
+	}
+	.popup{
+		width: 90%;
+	}
+}
+@media (max-width:360px) {
+	form {
+		font-size: 14px;
+	}
+	.col-25 {
+		width: 48%;
+	}
+	.col-75{
+		width: 52%;
+	}
+	input[type=checkbox], input[type=radio] {
+		height: 16px;
+		width: 16px;
+	}
+}
+
