@@ -1,6 +1,6 @@
 {
   "name": "Covid-19 Self-Screening",
-  "short_name": "Covid Screening",
+  "short_name": "CovidScreening",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#fdfdfd",
