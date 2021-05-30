@@ -9,19 +9,24 @@
       <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
       <link href="./style.css" rel="stylesheet">
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	  <meta name="mobile-web-app-capable" content="yes">
       <link rel="manifest" href="./manifest.json" />
       <!-- ios support -->
-      <link rel="apple-touch-icon" href="./icon-72x72.png" />
-      <link rel="apple-touch-icon" href="./icon-96x96.png" />
-      <link rel="apple-touch-icon" href="./icon-128x128.png" />
-      <link rel="apple-touch-icon" href="./icon-144x144.png" />
-      <link rel="apple-touch-icon" href="./icon-152x152.png" />
-      <link rel="apple-touch-icon" href="./icon-192x192.png" />
-      <link rel="apple-touch-icon" href="./icon-384x384.png" />
-      <link rel="apple-touch-icon" href="./icon-512x512.png" />
-      <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
-      <meta name="theme-color" content="#db4938" />
-      
+	  <meta name="apple-mobile-web-app-capable" content="yes">
+	  <meta name="apple-mobile-web-app-status-bar-style" content="#db4938">
+	  <meta name="apple-mobile-web-app-title" content="Covid-19 Self-Screening">
+      <link rel="apple-touch-icon" href="./icon-72x72.png" sizes="72x72">
+      <link rel="apple-touch-icon" href="./icon-96x96.png" sizes="96x96">
+      <link rel="apple-touch-icon" href="./icon-128x128.png" sizes="128x128">
+      <link rel="apple-touch-icon" href="./icon-144x144.png" sizes="144x144">
+      <link rel="apple-touch-icon" href="./icon-152x152.png" sizes="152x152">
+      <link rel="apple-touch-icon" href="./icon-192x192.png" sizes="192x192">
+      <link rel="apple-touch-icon" href="./icon-384x384.png" sizes="384x384">
+      <link rel="apple-touch-icon" href="./icon-512x512.png" sizes="512x512">
+      <link rel="manifest" href="/manifest.json">     
+	  <meta name="msapplication-TileColor" content="#db4938">
+	  <meta name="msapplication-TileImage" content="./icon-144x144.png">
+	  <meta name="theme-color" content="#db4938">
    </head>
    <body>
       <div class="maincontainer">
@@ -101,10 +106,10 @@
                         </div>
                      </div>
                      <div class="row clearfix">
-                        <label class="col-75 extremeTi#db4938ness msg">Extreme ti#db4938ness</label>
+                        <label class="col-75 extremeTi#db4938ness msg">Extreme tiredness</label>
                         <div class="col-25">
-                           <label><input type="radio" name="extremeTi#db4938ness" value="yes"> Yes </label>
-                           <label><input type="radio" name="extremeTi#db4938ness" class="no" value="no"> No </label>
+                           <label><input type="radio" name="extremeTiredness" value="yes"> Yes </label>
+                           <label><input type="radio" name="extremeTiredness" class="no" value="no"> No </label>
                         </div>
                      </div>
                      <div class="row clearfix">
@@ -187,6 +192,6 @@
 		</div>
 		 
       </div>
-	  <script src="./app.js" defer></script>
+	  <script src="./app.js"></script>
    </body>
 </html>
