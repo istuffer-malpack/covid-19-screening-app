@@ -64,6 +64,7 @@ button:hover {
 }
 
 .maincontainer {
+	position: relative;
 	width: 60%;
 	margin: 0 auto;
 	border: 1px #ccc solid
@@ -187,7 +188,7 @@ button:hover {
 }
 
 #installContainer button {
-  background-color: inherit;
+  background-color: red;
   border: 1px solid white;
   color: white;
   font-size: 1em;
