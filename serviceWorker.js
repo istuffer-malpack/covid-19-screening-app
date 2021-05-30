@@ -1,7 +1,8 @@
 const cacheName = "covid-19-screening-app";
 const assets = [
   "/",
-  "/index.html"
+  "/index.html",
+  "/app.js"
 ];
 
 self.addEventListener("install", installEvent => {
