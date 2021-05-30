@@ -13,15 +13,15 @@ self.addEventListener("install", installEvent => {
   );
 });
 
-self.addEventListener('activate', (event) => {
-  console.log('[ServiceWorker] Activate');
-  event.waitUntil((async () => {
-    if ('navigationPreload' in self.registration) {
-      await self.registration.navigationPreload.enable();
-    }
-  })());
-
-  self.clients.claim();
+self.addEventListener('activate', evt => {
+  evt.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(keys
+        .filter(key => key !== cacheName)
+        .map(key => caches.delete(key))
+      );
+    })
+  );
 });
 
 self.addEventListener("fetch", fetchEvent => {
