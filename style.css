@@ -34,7 +34,7 @@ ol {
 	color: #fff;
 }
 
-.logo{
+img.logo{
 	width: 120px;
 	height: 57px;
 	display: block;
@@ -295,7 +295,7 @@ text-align: center;
 	.container {
 		padding: 16px;
 	}
-	.logo{
+	img.logo{
 		margin: 0 auto;
 	}
 	.form-inline input {
