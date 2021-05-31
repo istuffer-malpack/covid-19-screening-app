@@ -12,18 +12,16 @@ const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.n
 // Checks if should display install popup notification:
 if (isIos() && !isInStandaloneMode()) {
   //this.setState({ showInstallMessage: true });
-  alert('ios');
+  //alert('ios');
+  divInstall.classList.toggle('hidden', false);
+  
+  setTimeout(function(){ divInstall.classList.add('hidden')}, 7000);
 }
 
 
 window.addEventListener('beforeinstallprompt', (event) => {
   //console.log('beforeinstallprompt', event);
   window.deferredPrompt = event;
-  
-  
-  //divInstall.classList.toggle('hidden', false);
-  
-  
 });
 
 butInstall.addEventListener('click', async () => {
@@ -45,8 +43,6 @@ window.addEventListener('appinstalled', (event) => {
   console.log('appinstalled');
   window.deferredPrompt = null;
 });
-
-
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
@@ -138,4 +134,16 @@ function toggle(source) {
 		}	
 					
 	});
+	
+	$(window).resize(function(){
+		var wd = $(window).width();		
+		
+		if(wd <= 460){
+			$('.overlay').addClass('bottomPopup');
+			$('.overlay').removeClass('topPopup');
+		}else{
+			$('.overlay').addClass('topPopup');
+			$('.overlay').removeClass('bottomPopup');
+		}
+	}).resize();
  });
