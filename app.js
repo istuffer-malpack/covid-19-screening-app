@@ -108,7 +108,7 @@ $(document).ready(function() {
 			//form submit
 			$('button').text("Sending...");
 			if(countYes > 0){
-				alert("You have answered YES to "+countYes+" of the questions, do not enter Malpack facility or exit the building if you are at work and/or you can contact Malpack Hotline : 905-426-2011.");
+				alert("You have answered YES to "+countYes+" of the questions, do not enter Malpack facility or exit the building if you are at work and/or contact Malpack Hotline : 905-426-2011.");
 				
 			}
 			$.ajax({
