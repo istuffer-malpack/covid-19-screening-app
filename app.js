@@ -70,7 +70,8 @@ function toggle(source) {
     }
 }
 
- $(document).ready(function() {
+$(document).ready(function() {	
+	
 	$('.formSubmit').click(function(e){	
 		e.preventDefault();
 		
@@ -82,11 +83,16 @@ function toggle(source) {
 		}else{
 			$('#empName').attr('placeholder','');
 		}
-		
+		var countYes = 0;
 		$('input[type="radio"').each(function() {
 			  var cname = $(this).attr("name");
 			  if($(this).is(':checked')){
 				$('.' + cname).css("color","#000");
+				
+				if($(this).val() == "yes"){
+					countYes++;
+				}
+				
 			  }else{
 				$('.' + cname).css("color","#db4938");
 				count++;
@@ -101,6 +107,10 @@ function toggle(source) {
 		}else{
 			//form submit
 			$('button').text("Sending...");
+			if(countYes > 0){
+				alert("You have answered YES to "+countYes+" of the questions, do not enter Malpack facility or exit the building if you are at work and/or you can contact Malpack Hotline : 905-426-2011.");
+				
+			}
 			$.ajax({
 				url: 'https://script.google.com/a/malpack.ca/macros/s/AKfycbz8V0BxvsqyLpCl7hEZlday2YZLXMoYCNB3CqTVTQ/exec',
 				type: 'get',
@@ -108,15 +118,17 @@ function toggle(source) {
 				data: $('#formQuestionnaire').serialize(),
 				success: function(data) {
 					if(data.result === "success"){
-						alert("Thank you, your information has been successfully submitted.");
-						$("html, body").animate({scrollTop: 0}, 1000);
 						$('#formQuestionnaire')[0].reset();
+						$('.msg').css("color","#000");						
+						$("html, body").animate({scrollTop: 0}, 1000);
+						
+						alert("Thank you, your information has been successfully submitted.");					
 					}else{
 						alert("Something went wrong when submitting the form. Please refresh the page and submit again.");
 					}
 					$('button').text("Submit");							
 				}
-			});		
+			});	
 					
 		}	
 					
