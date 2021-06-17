@@ -34,11 +34,6 @@ ol {
 	color: #fff;
 }
 
-img.logo{
-	width: 145px;
-	height: 57px;
-	display: block;
-}
 input[type=text] {
 	width: auto;
 	min-width: 300px;
@@ -59,8 +54,11 @@ input[type=radio] {
 	height: 18px;
 	width: 18px;
 }
-
+.buttons{
+	text-align: center;
+}
 button {
+	min-width: 135px;
 	border: 2px solid #000;
 	background-color: #fff;
 	padding: 14px 28px;
@@ -68,12 +66,20 @@ button {
 	cursor: pointer;
 	border-color: #2196f3;
 	color: #1e90ff;
-	margin: 25px auto;
-    display: block;
+	margin: 25px 13px;
+    display: inline-block;
 }
-
+.formReset{
+	border-color: orange;
+	color: orange;
+}
 button:hover {
 	background: #2196f3;
+	color: #fff;
+}
+
+button.formReset:hover {
+	background: orange;
 	color: #fff;
 }
 
@@ -156,7 +162,16 @@ form{
 .hidden {
   display: none !important;
 }
-
+.empNumberMsg{
+	position: absolute;
+	left: 0;
+	top: 20px;
+	font-style: italic;
+	font-size: 11px;
+	color:#db4938;
+	font-weight: 700;
+	display:none; 
+}
 /*#installContainer {
   position: fixed;
   bottom: 1em;
@@ -294,9 +309,6 @@ text-align: center;
 	}
 	.container {
 		padding: 16px;
-	}
-	img.logo{
-		margin: 0 auto;
 	}
 	.form-inline input {
 		margin: 10px 0;
