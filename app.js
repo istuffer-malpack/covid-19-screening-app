@@ -129,7 +129,7 @@ $(document).ready(function() {
 		
 		}else{
 			//form submit
-			$('button').text("Sending...");
+			$('.formSubmit').text("Sending...");
 			if(countYes > 0){
 				alert("You have answered YES to "+countYes+" of the questions, do not enter Malpack facility or exit the building if you are at work and/or contact Malpack Hotline : 905-426-2011.");
 				
