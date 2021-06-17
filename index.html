@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -41,9 +42,10 @@
             <form id="formQuestionnaire">
                <div class="form-inline">
                   <label for="empNo" style="position:relative;"><b>Employee Number</b>
-                  <span style="position: absolute;left: 0;top: 24px;font-style: italic;font-size: 11px;">(For visitors, leave it blank)</span>
+				  <span class="empNumberMsg">Numeric value only</span>
+                  <!--<span style="position: absolute;left: 0;top: 24px;font-style: italic;font-size: 11px;">(For visitors, leave it blank)</span>-->
                   </label>
-                  <input type="text" placeholder="" name="empNo">	
+                  <input type="text" placeholder="" name="empNo" id="empNo" onkeyup="checkEmpNumber()">	
                   <label for="empName"><b class="empName msg">Employee Name</b></label>
                   <input type="text" id="empName" placeholder="" name="empName">
                </div>
@@ -182,8 +184,11 @@
                   AND contact either your health care provider or Telehealth Ontario (1-866-797-0000) to
                   get advice or an assessment, including if you need a COVID-19 test.</i>
                   </div>-->
-               <button type="button" class="formSubmit">Submit</button>
-            </form>
+               <div class="buttons">
+					<button type="button" class="formReset">Reset</button>  
+					<button type="button" class="formSubmit">Submit</button>            
+			   </div>
+			</form>
          </div>
 		 		
 		<div id="installContainer" class="overlay hidden">
