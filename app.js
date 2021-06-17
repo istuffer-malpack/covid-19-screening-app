@@ -17,7 +17,7 @@ if (isIos() && !isInStandaloneMode() && isSafariBrowser) {
   //alert('ios');
   divInstall.classList.toggle('hidden', false);
   
-  setTimeout(function(){ divInstall.classList.add('hidden')}, 7000);
+  setTimeout(function(){ divInstall.classList.add('hidden')}, 3000);
 }
 
 
@@ -70,18 +70,41 @@ function toggle(source) {
     }
 }
 
+function checkEmpNumber(){
+var empNumber = $('#empNo').val();
+	if(/^\d*$/.test(empNumber)){
+		$('.empNumberMsg').css('display','none');
+	}else{
+		$('.empNumberMsg').css('display','block');
+	}
+
+}
+
 $(document).ready(function() {	
+
+	$('.formReset').click(function(){
+		$('#formQuestionnaire')[0].reset();
+		$('.empNumberMsg').css('display','none');
+	});
 	
 	$('.formSubmit').click(function(e){	
 		e.preventDefault();
 		
 		var count = 0;
 		var empName = $('#empName').val();
+		var empNo = $('#empNo').val();
+		
 		if(empName == ""){
 			$('#empName').attr('placeholder','Please enter your name');
 			count++;
 		}else{
 			$('#empName').attr('placeholder','');
+		}
+		if(!(/^\d*$/.test(empNo))){
+			$('#empNo').attr('placeholder','Please enter your employee number');
+			count++;
+		}else{
+			$('#empNo').attr('placeholder','');
 		}
 		var countYes = 0;
 		$('input[type="radio"').each(function() {
@@ -126,7 +149,7 @@ $(document).ready(function() {
 					}else{
 						alert("Something went wrong when submitting the form. Please refresh the page and submit again.");
 					}
-					$('button').text("Submit");							
+					$('.formSubmit').text("Submit");							
 				}
 			});	
 					
